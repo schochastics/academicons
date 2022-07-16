@@ -1,0 +1,20 @@
+---
+title: Academicons Quarto Extension
+format:
+   html: default
+   pdf: default
+---
+
+This extension allows you to use academicons in your Quarto HTML documents. It provides an `{{{< ai >}}}` shortcode:
+
+``` markdown
+{{{< ai icon-name >}}}
+```
+
+For example:
+
+| Shortcode                       | Icon                        |
+|---------------------------------|-----------------------------|
+| `{{{< ai arxiv >}}}`            | {{< ai arxiv >}}            |
+| `{{{< ai google-scholar >}}}`   | {{< ai google-scholar >}}   |
+| `{{{< ai open-access >}}}`      | {{< ai open-access >}}      |
