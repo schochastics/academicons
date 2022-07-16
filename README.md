@@ -1,6 +1,8 @@
 # Academicons Extension for Quarto
 
-This extension provides support for [academicons](https://jpswalsh.github.io/academicons/). Icons can be used in both HTML (via [Font Awesome 6 Free](https://fontawesome.com/search?m=fre
+This extension provides support for
+[academicons](https://jpswalsh.github.io/academicons/). Icons can be used in
+HTML documents only.
 
 ## Installing
 
