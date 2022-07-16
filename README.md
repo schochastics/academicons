@@ -18,10 +18,9 @@ If you're using version control, you will want to check in this directory.
 To embed an icon, use the `{{{< ai >}}}` shortcode. For example:
 
 ```
-{{< fa thumbs-up >}} 
-{{< fa folder >}}
-{{< fa chess-pawn }}
-{{{< fa brands bluetooth }}}
+{{< ai arxiv >}} 
+{{< ai google-scholar >}}
+{{< ai open-access }}
 ```
 
 You can browse all of the available icons here:
