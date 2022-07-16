@@ -33,5 +33,5 @@ You can browse all of the available icons here:
 
 Here is the source code for a minimal example: [example.qmd](example.qmd)
 
-This is the output of `example.qmd` for [HTML](https://schochsatics.github.io/academicons/).
+This is the output of `example.qmd` for [HTML](https://schochastics.github.io/academicons/).
 
