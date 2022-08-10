@@ -4,7 +4,7 @@ This extension provides support for
 [academicons](https://jpswalsh.github.io/academicons/). Icons can be used in
 HTML documents only.
 
-The code is adapted from teh [fontawesome](https://github.com/quarto-ext/fontawesome) extension
+The code is adapted from the [fontawesome](https://github.com/quarto-ext/fontawesome) extension
 
 ## Installing
 
