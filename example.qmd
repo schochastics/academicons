@@ -3,16 +3,23 @@ title: Academicons Quarto Extension
 format: html
 ---
 
-This extension allows you to use academicons in your Quarto HTML documents. It provides an `{{{< ai >}}}` shortcode:
+This extension allows you to use [academicons](https://jpswalsh.github.io/academicons/) in your Quarto HTML documents. It provides an `{{{< ai >}}}` shortcode:
 
-``` markdown
-{{{< ai icon-name >}}}
-```
+- Mandatory `<icon-name>`:
+  ``` markdown
+  {{{< ai <icon-name> >}}}
+  ```
+
+- Optional `<size=...>`:
+  ``` markdown
+  {{{< ai <icon-name> <size=...> >}}}
+  ```
 
 For example:
 
-| Shortcode                       | Icon                        |
-|---------------------------------|-----------------------------|
-| `{{{< ai arxiv >}}}`            | {{< ai arxiv >}}            |
-| `{{{< ai google-scholar >}}}`   | {{< ai google-scholar >}}   |
-| `{{{< ai open-access >}}}`      | {{< ai open-access >}}      |
+| Shortcode                          | Icon                           |
+|------------------------------------|--------------------------------|
+| `{{{< ai arxiv >}}}`               | {{< ai arxiv >}}               |
+| `{{{< ai google-scholar >}}}`      | {{< ai google-scholar >}}      |
+| `{{{< ai open-access >}}}`         | {{< ai open-access >}}         |
+| `{{{< ai open-access size=5x >}}}` | {{< ai open-access size=5x >}} |
