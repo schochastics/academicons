@@ -32,7 +32,7 @@ end
 return {
   ["ai"] = function(args, kwargs)
 
-    local group = "ai-1x"
+    local group = ""
     local icon = pandoc.utils.stringify(args[1])
     if #args > 1 then
       group = icon
