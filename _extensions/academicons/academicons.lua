@@ -14,6 +14,10 @@ local function isEmpty(s)
   return s == nil or s == ''
 end
 
+local function isEmpty(color)
+  return color == "black"
+end
+
 local function isValidSize(size)
   local validSizes = {
     "tiny", "scriptsize", "footnotesize", "small", "normalsize",
@@ -40,6 +44,16 @@ return {
     end
 
     local size = isValidSize(pandoc.utils.stringify(kwargs["size"]))
+    
+    local color = pandoc.utils.stringify(kwargs["color"])
+    if not isEmpty(color) then
+      color = " style=\"color:" .. color  .. "\""
+    end
+    
+    local title = pandoc.utils.stringify(kwargs["title"])
+    if not isEmpty(title) then
+      title = " title=\"" .. title  .. "\""
+    end
 
     -- detect html (excluding epub)
     if quarto.doc.isFormat("html:js") then
@@ -47,12 +61,12 @@ return {
       if isEmpty(size) then
         return pandoc.RawInline(
           'html',
-          "<i class=\"ai " .. group .. " ai-" .. icon .. "\"></i>"
+          "<i class=\"ai " .. group .. " ai-" .. icon .. "\"" .. title .. color .. "></i>"
         )
       else
         return pandoc.RawInline(
           'html',
-          "<i class=\"ai " .. group .. " ai-" .. icon .. size .. "\"></i>"
+          "<i class=\"ai " .. group .. " ai-" .. icon .. size .. "\"" .. title .. color .. "></i>"
         )
       end
     -- detect pdf / beamer / latex / etc
