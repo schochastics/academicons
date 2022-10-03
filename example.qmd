@@ -24,3 +24,4 @@ For example:
 | `{{{< ai open-access >}}}`         | {{< ai open-access >}}         |
 | `{{{< ai open-access size=5x >}}}` | {{< ai open-access size=5x >}} |
 
+

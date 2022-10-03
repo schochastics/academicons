@@ -76,6 +76,12 @@ When the size is invalid, no size changes are made.
   | huge (= `\huge`)                 | 2em              |
   | Huge (= `\Huge`)                 | 2.5em            |
 
+### Coloring icon
+
+The color of the icon can be changed via the `color` parameter.  
+`{{< ai open-access color=red >}}`
+
+
 ## Example
 
 Here is the source code for a minimal example: [example.qmd](example.qmd)
