@@ -44,8 +44,8 @@ return {
     local color = pandoc.utils.stringify(kwargs["color"])
     if not isEmpty(color) then
       color = " style=\"color:" .. color  .. "\""
-    else
-      color = " style=\"color:" .. "black"  .. "\""
+    --else
+     -- color = " style=\"color:" .. "black"  .. "\""
     end
     
     local title = pandoc.utils.stringify(kwargs["title"])
