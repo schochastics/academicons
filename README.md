@@ -76,6 +76,8 @@ When the size is invalid, no size changes are made.
   | huge (= `\huge`)                 | 2em              |
   | Huge (= `\Huge`)                 | 2.5em            |
 
+- CSS-style sizing: `{{< ai open-access size=2em >}}`.
+
 ### Coloring icon
 
 The color of the icon can be changed via the `color` parameter.  

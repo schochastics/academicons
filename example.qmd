@@ -28,6 +28,6 @@ For example:
 | `{{{< ai google-scholar >}}}`      | {{< ai google-scholar >}}      |
 | `{{{< ai open-access >}}}`         | {{< ai open-access >}}         |
 | `{{{< ai open-access size=5x >}}}` | {{< ai open-access size=5x >}} |
+| `{{{< ai open-access size=3em >}}}` | {{< ai open-access size=3em >}} |
 | `{{{< ai open-access color=red >}}}` | {{< ai open-access color=red >}} |
-
 
