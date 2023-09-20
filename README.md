@@ -1,7 +1,7 @@
 # Academicons Extension for Quarto
 
 This extension provides support for
-[academicons](https://jpswalsh.github.io/academicons/). Icons can be used in
+[academicons](https://jpswalsh.github.io/academicons/) (v1.9.4). Icons can be used in
 HTML documents only.
 
 The code is adapted from the [fontawesome](https://github.com/quarto-ext/fontawesome) extension.
