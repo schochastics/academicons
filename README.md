@@ -22,7 +22,7 @@ To embed an icon, use the `{{{< ai >}}}` shortcode. For example:
 ```default
 {{< ai arxiv >}} 
 {{< ai google-scholar >}}
-{{< ai open-access }}
+{{< ai open-access >}}
 {{< ai open-access size=5x >}}
 ```
 
