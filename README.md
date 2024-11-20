@@ -2,7 +2,7 @@
 
 This extension provides support for
 [academicons](https://jpswalsh.github.io/academicons/) (v1.9.4). Icons can be used in
-HTML documents only.
+HTML  and PDF documents only.
 
 The code is adapted from the [fontawesome](https://github.com/quarto-ext/fontawesome) extension.
 
@@ -38,7 +38,7 @@ When the size is invalid, no size changes are made.
 - Relative sizing: `{{< ai open-access size=2xl >}}`.
 
   | Relative Sizing Class | Font Size | Equivalent in Pixels |
-  |-----------------------|-----------|----------------------|
+  | --------------------- | --------- | -------------------- |
   | 2xs                   | 0.625em   | 10px                 |
   | xs                    | 0.75em    | 12px                 |
   | sm                    | 0.875em   | 14px                 |
@@ -49,7 +49,7 @@ When the size is invalid, no size changes are made.
 - Literal sizing: `{{< ai open-access size=5x >}}`.
 
   | Literal Sizing Class | Font Size |
-  |----------------------|-----------|
+  | -------------------- | --------- |
   | 1x                   | 1em       |
   | 2x                   | 2em       |
   | 3x                   | 3em       |
