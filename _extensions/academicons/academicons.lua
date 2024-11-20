@@ -1,9 +1,9 @@
--- function ensureLatexDeps()
---   quarto.doc.useLatexPackage("academicons")
--- end
+function ensureLatexDeps()
+  quarto.doc.use_latex_package("academicons")
+end
 
 local function ensureHtmlDeps()
-  quarto.doc.addHtmlDependency({
+  quarto.doc.add_html_dependency({
     name = "academicons",
     version = "1.9.4",
     stylesheets = { "assets/css/all.css", "assets/css/size.css" }
@@ -16,17 +16,53 @@ end
 
 local function isValidSize(size)
   local validSizes = {
-    "tiny", "scriptsize", "footnotesize", "small", "normalsize",
-    "large", "Large", "LARGE", "huge", "Huge",
-    "1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x",
-    "2xs", "xs", "sm", "lg", "xl", "2xl"
+    "tiny",
+    "scriptsize",
+    "footnotesize",
+    "small",
+    "normalsize",
+    "large",
+    "Large",
+    "LARGE",
+    "huge",
+    "Huge"
   }
   for _, v in ipairs(validSizes) do
     if v == size then
-      return " ai-" .. size
+      return size
     end
   end
   return ""
+end
+
+local function convertToLatexSize(size)
+  local sizeMap = {
+    ["2xs"] = "tiny",
+    ["xs"] = "scriptsize",
+    ["sm"] = "small",
+    ["lg"] = "large",
+    ["xl"] = "Large",
+    ["2xl"] = "huge",
+    ["1x"] = "normalsize",
+    ["2x"] = "huge",
+    ["3x"] = "Huge"
+  }
+  return sizeMap[size] or size
+end
+local function convertToHtmlSize(size)
+  local sizeMap = {
+    ["tiny"] = "0.5em",
+    ["scriptsize"] = "0.7em",
+    ["footnotesize"] = "0.8em",
+    ["small"] = "0.9em",
+    ["normalsize"] = "1em",
+    ["large"] = "1.25em",
+    ["Large"] = "1.5em",
+    ["LARGE"] = "1.75em",
+    ["huge"] = "2em",
+    ["Huge"] = "2.5em"
+  }
+  return sizeMap[size] or size
 end
 
 return {
@@ -38,12 +74,13 @@ return {
       icon = pandoc.utils.stringify(args[2])
     end
 
-    local size = isValidSize(pandoc.utils.stringify(kwargs["size"]))
     local color = pandoc.utils.stringify(kwargs["color"])
-    if not isEmpty(color) then
-      color = " style=\"color:" .. color .. "\""
-      --else
-      -- color = " style=\"color:" .. "black"  .. "\""
+
+    local label = pandoc.utils.stringify(kwargs["label"])
+    if isEmpty(label) then
+      label = " aria-label=\"" .. icon .. "\""
+    else
+      label = " aria-label=\"" .. label .. "\""
     end
 
     local title = pandoc.utils.stringify(kwargs["title"])
@@ -51,30 +88,50 @@ return {
       title = " title=\"" .. title .. "\""
     end
 
+    local size = pandoc.utils.stringify(kwargs["size"])
+
+    local hsize = pandoc.utils.stringify(kwargs["hsize"])
+
+    local psize = pandoc.utils.stringify(kwargs["psize"])
+
+
     -- detect html (excluding epub)
     if quarto.doc.isFormat("html:js") then
       ensureHtmlDeps()
-      if isEmpty(size) then
-        local csize = pandoc.utils.stringify(kwargs["size"])
-        if (isEmpty(csize)) then
-          csize = ""
-        else
-          csize = " style=\"font-size:" .. csize .. "\""
-        end
-        return pandoc.RawInline(
-          'html',
-          "<i class=\"ai " .. group .. " ai-" .. icon .. "\"" .. title .. color .. csize .. "></i>"
-        )
-      else
-        return pandoc.RawInline(
-          'html',
-          "<i class=\"ai " .. group .. " ai-" .. icon .. size .. "\"" .. title .. color .. "></i>"
-        )
+      if not isEmpty(hsize) then
+        size = hsize
       end
+      size = convertToHtmlSize(size)
+      if not isEmpty(size) then
+        size = " ai-" .. size
+      end
+      if not isEmpty(color) then
+        color = " style=\"color:" .. color .. "\""
+      end
+      return pandoc.RawInline(
+        'html',
+        "<i class=\"ai " .. group .. " ai-" .. icon .. size .. "\"" .. title .. color .. label .. "></i>"
+      )
       -- detect pdf / beamer / latex / etc
-      -- elseif quarto.doc.isFormat("pdf") then
-      --   ensureLatexDeps()
-      --   return pandoc.RawInline('tex', "\\aiIcon{" .. icon .. "}")
+    elseif quarto.doc.is_format("pdf") then
+      ensureLatexDeps()
+      if not isEmpty(psize) then
+        size = psize
+      end
+      size = isValidSize(convertToLatexSize(size))
+      if not isEmpty(size) then
+        size = "\\" .. size
+      end
+      if not isEmpty(color) then
+        color = "\\color{" .. color .. "}"
+      end
+      icon = icon:gsub("-square", "_SQUARE"):gsub("-", ""):gsub("_SQUARE", "-square")
+
+      if isEmpty(size) and isEmpty(color) then
+        return pandoc.RawInline('tex', "\\aiicon{" .. icon .. "}")
+      else
+        return pandoc.RawInline('tex', "{" .. size .. color .. "\\aiicon{" .. icon .. "}}")
+      end
     else
       return pandoc.Null()
     end
