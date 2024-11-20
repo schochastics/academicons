@@ -84,8 +84,11 @@ for HTML and PDF documents using the `hsize` and `psize` parameters.
 ### Coloring icon
 
 The color of the icon can be changed via the `color` parameter.  
-`{{< ai open-access color=red >}}`
+`{{< ai open-access color=red >}}` 
 
+
+Different colors for HTML and PDF can be specified using the `hcolor` and `pcolor` parameters:
+`{{< ai open-access hcolor=red pcolor=blue >}}`
 
 ## Example
 
