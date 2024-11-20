@@ -33,33 +33,36 @@ You can browse all of the available icons here:
 ### Sizing Icons
 
 This extension provides relative, literal, and LaTeX-style sizing for icons.  
-When the size is invalid, no size changes are made.
+When the size is invalid, no size changes are made. LaTeX-style sizes are automatically
+converted to HTML-style sizing for HTML documents, and _relative_ HTML-styles sizes are
+converted to LaTeX-style sizing for PDF documents. Different sizes can be specified
+for HTML and PDF documents using the `hsize` and `psize` parameters.
 
 - Relative sizing: `{{< ai open-access size=2xl >}}`.
 
   | Relative Sizing Class | Font Size | Equivalent in Pixels |
   | --------------------- | --------- | -------------------- |
-  | 2xs                   | 0.625em   | 10px                 |
-  | xs                    | 0.75em    | 12px                 |
-  | sm                    | 0.875em   | 14px                 |
-  | lg                    | 1.25em    | 20px                 |
-  | xl                    | 1.5em     | 24px                 |
-  | 2xl                   | 2em       | 32px                 |
+  | ai-2xs                | 0.625em   | 10px                 |
+  | ai-xs                 | 0.75em    | 12px                 |
+  | ai-sm                 | 0.875em   | 14px                 |
+  | ai-lg                 | 1.25em    | 20px                 |
+  | ai-xl                 | 1.5em     | 24px                 |
+  | ai-2xl                | 2em       | 32px                 |
 
 - Literal sizing: `{{< ai open-access size=5x >}}`.
 
   | Literal Sizing Class | Font Size |
   | -------------------- | --------- |
-  | 1x                   | 1em       |
-  | 2x                   | 2em       |
-  | 3x                   | 3em       |
-  | 4x                   | 4em       |
-  | 5x                   | 5em       |
-  | 6x                   | 6em       |
-  | 7x                   | 7em       |
-  | 8x                   | 8em       |
-  | 9x                   | 9em       |
-  | 10x                  | 10em      |
+  | ai-1x                | 1em       |
+  | ai-2x                | 2em       |
+  | ai-3x                | 3em       |
+  | ai-4x                | 4em       |
+  | ai-5x                | 5em       |
+  | ai-6x                | 6em       |
+  | ai-7x                | 7em       |
+  | ai-8x                | 8em       |
+  | ai-9x                | 9em       |
+  | ai-10x               | 10em      |
 
 - LaTeX-style sizing: `{{< ai open-access size=Huge >}}`.
 
@@ -76,7 +79,7 @@ When the size is invalid, no size changes are made.
   | huge (= `\huge`)                 | 2em              |
   | Huge (= `\Huge`)                 | 2.5em            |
 
-- CSS-style sizing: `{{< ai open-access size=2em >}}`.
+- Different sizes for HTML and PDF: `{{< ai open-access hsize=xl psize=Large >}}`.
 
 ### Coloring icon
 
