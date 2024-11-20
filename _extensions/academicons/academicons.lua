@@ -5,7 +5,7 @@
 local function ensureHtmlDeps()
   quarto.doc.addHtmlDependency({
     name = "academicons",
-    version = "1.9.2",
+    version = "1.9.4",
     stylesheets = { "assets/css/all.css", "assets/css/size.css" }
   })
 end
