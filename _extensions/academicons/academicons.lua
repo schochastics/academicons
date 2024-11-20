@@ -51,16 +51,16 @@ local function convertToLatexSize(size)
 end
 local function convertToHtmlSize(size)
   local sizeMap = {
-    ["tiny"] = "0.5em",
-    ["scriptsize"] = "0.7em",
-    ["footnotesize"] = "0.8em",
-    ["small"] = "0.9em",
-    ["normalsize"] = "1em",
-    ["large"] = "1.25em",
-    ["Large"] = "1.5em",
-    ["LARGE"] = "1.75em",
-    ["huge"] = "2em",
-    ["Huge"] = "2.5em"
+    ["tiny"] = "2xs",
+    ["scriptsize"] = "xs",
+    ["footnotesize"] = "xs",
+    ["small"] = "sm",
+    ["normalsize"] = "1x",
+    ["large"] = "lg",
+    ["Large"] = "xl",
+    ["LARGE"] = "2xl",
+    ["huge"] = "2xl",
+    ["Huge"] = "3x"
   }
   return sizeMap[size] or size
 end
@@ -75,6 +75,8 @@ return {
     end
 
     local color = pandoc.utils.stringify(kwargs["color"])
+    local hcolor = pandoc.utils.stringify(kwargs["hcolor"])
+    local pcolor = pandoc.utils.stringify(kwargs["pcolor"])
 
     local label = pandoc.utils.stringify(kwargs["label"])
     if isEmpty(label) then
@@ -89,9 +91,7 @@ return {
     end
 
     local size = pandoc.utils.stringify(kwargs["size"])
-
     local hsize = pandoc.utils.stringify(kwargs["hsize"])
-
     local psize = pandoc.utils.stringify(kwargs["psize"])
 
 
@@ -104,6 +104,9 @@ return {
       size = convertToHtmlSize(size)
       if not isEmpty(size) then
         size = " ai-" .. size
+      end
+      if not isEmpty(hcolor) then
+        color = hcolor
       end
       if not isEmpty(color) then
         color = " style=\"color:" .. color .. "\""
@@ -121,6 +124,9 @@ return {
       size = isValidSize(convertToLatexSize(size))
       if not isEmpty(size) then
         size = "\\" .. size
+      end
+      if not isEmpty(pcolor) then
+        color = pcolor
       end
       if not isEmpty(color) then
         color = "\\color{" .. color .. "}"
