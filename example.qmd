@@ -20,6 +20,12 @@ This extension allows you to use [academicons](https://jpswalsh.github.io/academ
   {{{< ai <icon-name> <color=...> >}}}
   ```
 
+
+- Optional `<hsize=...>` and `<psize=...>` to specify different sizes for HTML and PDF documents:
+  ``` markdown
+  {{{< ai <icon-name> <hsize=...> <psize=...> >}}}
+  ```
+
 For example:
 
 | Shortcode                          | Icon                           |
@@ -28,6 +34,7 @@ For example:
 | `{{{< ai google-scholar >}}}`      | {{< ai google-scholar >}}      |
 | `{{{< ai open-access >}}}`         | {{< ai open-access >}}         |
 | `{{{< ai open-access size=5x >}}}` | {{< ai open-access size=5x >}} |
-| `{{{< ai open-access size=3em >}}}` | {{< ai open-access size=3em >}} |
+| `{{{< ai open-access size=3x >}}}` | {{< ai open-access size=3x >}} |
+| `{{{< ai open-access hsize=xl psize=Large >}}}` | {{< ai open-access hsize=xl psize=Large >}} |
 | `{{{< ai open-access color=red >}}}` | {{< ai open-access color=red >}} |
 
